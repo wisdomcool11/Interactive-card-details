@@ -1,0 +1,472 @@
+
+
+:root{
+    --linear_gradient: linear-gradient(
+        hsl(249,99%,64%), hsl(278,94%,30%)
+    );
+    --color_red: hsl(0,100%,66%);
+    --white: hsl (0,0%,100%);
+    --light_grayish_violet: hsl(270, 3%, 87%);
+    --dark_grayish_violet: hsl(279, 6%, 55%);
+    --very_dark_violet: hsl(278, 68%, 11%);
+    --font: 16px;
+    --font-family:"Space Grotesk", sans-serif;
+}
+
+*{
+    box-sizing: border-box; margin: 0; padding: 0;
+}
+body{
+    font-size: var(--font);
+    font-weight: 400;
+    color: var(--light_grayish_violet);
+    font-family: var(--font-family);
+}
+
+/* // styling interactive container // */
+.interactive__container{
+    width: 1050px;
+    height: 600px;
+    border: 1px solid #ddd;
+    margin:20px auto;
+
+    /* flexbox */
+    display: flex;
+}
+
+/* //interactive bg img // */
+.interactive__bg__img{
+    width: 390px;
+    height: 100%;
+    background-color: purple;
+    background-image: url(Front-end_mentor/bg_main_desktop.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+ul{
+    list-style-type: none;
+    margin-left: 150px;
+}
+li{
+    position: relative;
+    width: 100%;
+}
+
+
+/* // card front // */
+.card{
+    width: 340px;
+    height: 202px;
+    border-radius: 8px;
+}
+
+.card__front{
+    background-color: purple;
+    background-image: url(Front-end_mentor/bg_card_front.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 25px;
+
+    /* positioning */
+    /* position: absolute;
+    top: 80px;
+    left: calc(100% - 225px); */
+}
+
+.card__logo{
+/* card logo */
+    background-color: #ddd;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+.card__logo_small{
+/* card logo small */
+    background-color: transparent;
+    width: 15px;
+    height: 15px;
+    border: 3px solid #ddd;
+    border-radius: 50%;
+    margin: -25px 0 0 45px;
+}
+.card__content{
+    margin-top: 55px;
+    width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction:column ;
+    justify-content: center; align-items: center;
+
+}
+.card__info{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.card__content h3{
+    letter-spacing: 5.5px;
+}
+
+/* back card */
+.card__back ,.down{
+    background-color: purple;
+    background-image: url(Front-end_mentor/bg_card_back.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* positioning */
+    /* position: absolute;
+    top: 310px;
+    left: calc(100% - 180px); */
+}
+.down{
+    position: relative;
+    top: 15px;
+    left: 50px;
+}
+.card__back__content{
+    margin-top: 20px;
+    margin-left: 280px;
+    font-weight: 500;
+    position: absolute;
+    top: 13px; 
+}
+
+.card__back{
+    transform: rotateY(90deg);
+}
+.card__front{
+    position: absolute;
+
+}
+
+
+li:hover .card__front{
+    animation: flipe_me 0.2s ease-in forwards;
+}
+li:hover .card__back{
+    animation: flipe_me 0.2s 0.2s ease-out forwards reverse;
+}
+
+@keyframes flipe_me {
+    0%{transform: rotateY(0deg);}
+    100%{transform: rotateY(90deg);}
+}
+
+/* // interactive content */
+.interactive__content__wrap{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+}
+
+/* button container */
+.btn_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#shortMessage{
+    /* styling th message */
+    padding-bottom: 15px;
+    color: #565158d7;
+}
+
+/* opne button to show the form */
+#openbtn{
+    width: 180px;
+    height: 60px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    color: var(--light_grayish_violet);
+    font-size: 16px;
+    background-color: #350635;
+    background-image: radial-gradient(
+      purple, #000000
+    );
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+#openbtn:hover{
+    transform: scale(1.074);
+}
+#openbtn:active{
+    transform: translateY(4px);
+    box-shadow: 0 4px 6px 0 #555;
+}
+
+/* details wrapper */
+.details{
+    width:350px; height: auto;
+    margin-left: 100px;
+    display: none;
+    position: relative;
+}
+
+#cancleBtn{
+    font-size: 40px;
+    color: rgb(128, 2, 2);
+    position: absolute;
+    bottom: 100%;
+    left: 90%;
+    transition: color 0.3s ease-in
+        font-size 0.5s ease-out;
+}
+#cancleBtn:hover{
+    font-size: 36px;
+    color: rgb(225, 2, 2);
+    position: absolute;
+    bottom: 100%;
+    left: 90%;
+    cursor: pointer;
+}
+
+/* giving spacing to the input and label  */
+.spacing{
+    width: 100%;
+    margin-bottom: 20px;
+}
+label{
+    color: #000000;
+    font-weight: bold;
+}
+input{
+    border: 2px solid var(--light_grayish_violet);
+    padding: 10px;
+    border-radius: 9px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+input[type=text],input[type=tel]{
+    width: 100%;
+}
+input[type=month], input[type=year]{
+    width: 80px;
+}
+input[type=month]{
+    margin-right: 8px;
+}
+.spacing:nth-child(3){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.month__year,.cvc{
+    width: 100%;
+    height: 100%;
+}
+.month_year_boxes{
+    width: 100%;
+    display: flex;
+}
+.cvc{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+input[type=tel]{
+    width: 100%;
+}
+
+::placeholder{
+    color: var(--very_dark_violet);
+}
+
+/* 
+    to valid the number
+*/
+#number{outline:0}
+#number:valid{
+    border-color:1px solid green;
+}
+#number:focus:invalid{
+    border:1px solid red;
+}
+
+input[type=submit]{
+    width: 100%;
+    color: var(--white);
+    background-color: rgb(37, 2, 37);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+input[type=submit]:hover{
+    transform: scale(1.074);
+}
+
+input[type=submit]:active{
+    transform: translateY(4px);
+    box-shadow: 0 4px 8px 0 #555;
+}
+
+.animate{
+    -webkit-animation: animateForm .6s;
+    animation: animateForm .6s;
+}
+
+@-webkit-keyframes animateForm {
+    from{-webkit-transform: scale(0);}
+    to{-webkit-transform: scale(1);}
+}
+@keyframes animateForm {
+    from{transform: scale(0);}
+    to{transform: scale(1);}
+}
+
+
+
+/* ################################## */
+/* // media query at 480px /// */
+/* #################################### */
+@media (max-width: 768px) {
+    .interactive__container{
+        width: 500px;
+        height: 760px;
+        flex-direction: column;
+    }
+    .interactive__bg__img{
+        height: 260px;
+        width: 100%;
+    }
+    ul{
+        margin:90px 0px 0px 0px ;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .card{
+        width: 290px;
+        height: 160px;
+    }
+    .card__front{
+        /* margin:10px 0 0 -35px; */
+        top: 10px;
+        right: 52px;
+    }
+    
+    .card__content{
+        margin-top: 35px;
+    }
+    .card__content h3 {
+        letter-spacing: 2px;
+        font-size: 16px;
+    }
+    .card__info{
+        margin-top: 13px;
+    }
+    .card__info h5, 
+    .card__info code{
+        font-size: 12px;
+    }
+
+    .card__info code{
+        margin-right: 7px;
+    }
+    .down{
+        top: 0;
+    }
+    .card__back__content {
+        /* adjusting the code */
+        top:2px ;
+        right: 20px;
+    }
+    .interactive__content__wrap{
+        width: 100%;
+        padding: 130px 40px 80px 40px;
+    }
+    .details{
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+
+/* ################################## */
+/* // media query at 480px /// */
+/* #################################### */
+@media (max-width: 480px) and (max-width: 767px){
+    .interactive__container{
+        width: 375px;
+        height: 780px;
+        flex-direction: column;
+    }
+    .interactive__bg__img{
+        height: 260px;
+        width: 100%;
+    }
+
+    /*adjusting the ul */
+    ul{
+        margin:90px 0px 0px 0px ;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .card{
+        width: 250px;
+        height: 150px;
+    }
+    .card__front{
+        /* margin:10px 0 0 -35px; */
+        top: 10px;
+        right: 52px;
+    }
+    
+    .card__content{
+        margin-top: 35px;
+    }
+    .card__content h3 {
+        letter-spacing: 2px;
+        font-size: 16px;
+    }
+    .card__info{
+        margin-top: 13px;
+    }
+    .card__info h5, 
+    .card__info code{
+        font-size: 12px;
+    }
+
+    .card__info code{
+        margin-right: 7px;
+    }
+    .down{
+        top: 0;
+    }
+    .card__back__content {
+        /* adjusting the code */
+        top:2px ;
+        right: 20px;
+    }
+    .interactive__content__wrap{
+        width: 100%;
+        padding: 130px 20px 80px 20px;
+    }
+    .details{
+        width: 100%;
+        margin-left: 0;
+    }
+    
+}
