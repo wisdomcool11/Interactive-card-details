@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,17 +24,19 @@
                         <div class="card__logo"></div>
                         <div class="card__logo_small"></div>
                         <div class="card__content">
-                            <h3>0000 0000 0000 0000</h3>
+                            <h3 id="card_num">0000 0000 0000 0000</h3>
                             <div class="card__info">
-                                <h5>JANE APPLESEED</h5>
-                                <code>00/00</code>
+                                <h5 id="card_name">JANE APPLESEED</h5>
+                                <code class="front_code">
+                                    <span id="month">00</span>/<span id="year">00</span>
+                                </code>
                             </div>
                         </div>
                     </div>
                     <div class="card__back card">
                         <!-- back card -->
                         <div class="card__back__content">
-                            <code>000</code>
+                            <code id="back_code">000</code>
                         </div>
                     </div>
                 </li>
@@ -64,30 +66,44 @@
                 <form action="#" method="get" class="animate">
                     <div class="spacing">
                         <label for="name">CARD HOLDER NAME</label>
-                        <input type="text" name="name" id="name" placeholder="e.g. Jane Appleseed" required>
+                        <input oninput="getName()" type="text" name="name" id="name" placeholder="e.g. Jane Appleseed" required>
                     </div>
                     <div class="spacing">
                         <label for="number">CARD NUMBER</label>
-                        <input type="tel" name="number" id="number" maxlength="18" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4} " placeholder="e.g. 1234 5678 9123 0000" required>
+                        <input oninput="getNumber()" type="tel" name="number" id="number" maxlength="19"   placeholder="e.g. 1234 5678 9123 0000" required>
                     </div>
+                    <!-- 
+                        this pattern is to go the number input
+                        pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}"
+                     -->
+                    
 
                     <div class="spacing">
                         <div class="month_year">
                             <label for="birth_date">EXP. DATE (MM/YY)</label>
                             <div class="month_year_boxes">
-                                <input type="month" name="birth_date" id="birth_date" maxlength="2" max="9" min="0"  placeholder="MM" required >
-                                <input type="year" name="birth_date" id="birth_date" maxlength="4" max="9" min="0"  placeholder="YY"required>    
+                                <input oninput="getMonth()" type="month" name="birth_date" id="birth_date" maxlength="2" max="9" min="0"  placeholder="MM" required >
+                                <input oninput="getYear()" type="year" name="birth_date" id="birth_date" maxlength="4" max="9" min="0"  placeholder="YY"required>    
                             </div>
                         </div>
                         <div class="cvc">
                             <label for="cvc">CVC</label>
-                            <input type="tel" id="cvc" name="cvc" maxlength="3" max="9" min="0" placeholder="e.g. 123" required>    
+                            <input oninput="getValue()" type="tel" id="cvc" name="cvc" maxlength="3" max="9" min="0" placeholder="e.g. 123" required>    
                         </div>
                     </div>
 
-                    <input type="submit" value="Confirm">
+                    <button type="submit" class="btn_submit" id="btn_submit" onclick="openPopUp()">
+                        Submit
+                    </button>
+
                 </form>
-                </form>
+
+            </div>
+            <div class="pop_ups" id="pop_ups">
+                <img src="mark.png" >
+                <h2>Thank You!</h2>
+                <p>Your details have been submitted, Thanks!</p>
+                <button type="button" onclick="closePopUp()">OK</button>
             </div>
         </div>
     </div>
@@ -111,7 +127,40 @@
                 shortMessage.style.display = 'block';
            }
         } 
-    </script>
+
+        //real time updating
+        function getName(){
+            let name= document.getElementById('name').value;
+            document.getElementById('card_name').innerHTML = name;
+        }
+        function getNumber(){
+            let number= document.getElementById('number').value;
+            document.getElementById('card_num').innerHTML = number;
+        }
+        function getMonth(){
+            let month= document.getElementById('birth_date').value;
+            document.getElementById('month').innerHTML = month;
+        }
+        function getYear(){
+            let year= document.getElementById('birth_year').value;
+            document.getElementById('year').innerHTML = year;
+        }
+
+        // pop up
+        let popUp = document.getElementById('pop_ups')
+        function openPopUp() {
+            popUp.classList.add('open_popUps');
+            myLog.style.display = 'none';
+            // this will create a class
+            // take the style in the class
+        }
+        function closePopUp() {
+            popUp.classList.remove('open_popUps');
+            // this will remove the class
+            // take the style in the class
+            openBtn.style.display = 'block';
+        }
+    </script>   
 
 </body>
 </html>
