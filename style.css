@@ -535,8 +535,8 @@ input[type=tel]{
     }
     .card__back__content {
         /* adjusting the code */
-        top:2px ;
-        right: 20px;
+        top:-12px ;
+        right: 26px;
     }
     .interactive__content__wrap{
         width: 100%;
@@ -546,5 +546,9 @@ input[type=tel]{
         width: 100%;
         margin-left: 0;
     }
+     /*pop up  */
+     .open_popUps{
+        top: 65%;
+     }
     
 }

@@ -36,7 +36,7 @@
                     <div class="card__back card">
                         <!-- back card -->
                         <div class="card__back__content">
-                            <code id="back_code">000</code>
+                            <code id="back_code_up">000</code>
                         </div>
                     </div>
                 </li>
@@ -44,7 +44,7 @@
                     <div class=" card down">
                         <!-- back card -->
                         <div class="card__back__content">
-                            <code>000</code>
+                            <code id="back_code_down">000</code>
                         </div>
                     </div>
                 </li>
@@ -88,7 +88,7 @@
                         </div>
                         <div class="cvc">
                             <label for="cvc">CVC</label>
-                            <input oninput="getValue()" type="tel" id="cvc" name="cvc" maxlength="3" max="9" min="0" placeholder="e.g. 123" required>    
+                            <input oninput="getcvc()" type="tel" id="cvc" name="cvc" maxlength="3" max="9" min="0" placeholder="e.g. 123" required>    
                         </div>
                     </div>
 
@@ -144,6 +144,11 @@
         function getYear(){
             let year= document.getElementById('birth_year').value;
             document.getElementById('year').innerHTML = year;
+        }
+        function getcvc(params) {
+            let cvc = document.getElementById('cvc').value;
+            document.getElementById('back_code_up').innerHTML = cvc;   
+            document.getElementById('back_code_down').innerHTML = cvc;   
         }
 
         // pop up
